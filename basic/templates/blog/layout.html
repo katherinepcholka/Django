@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fonts/Mont/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="header_wrapper ">
+            <nav>
+                <a href="{% url 'home' %}">Главная</a>
+                <a href="{% url 'categories' %}">Категории</a>
+            </nav>
+            <input type="text" placeholder="Поиск">
+            <a href="#">Авторизация</a>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

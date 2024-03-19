@@ -1,0 +1,16 @@
+{% extends 'blog/layout.html' %}
+{% load static %}
+
+{% block title %}Домашняя{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <div class="home_page">
+            <img src="{% static 'img/blog/blog-big-img.png' %}" alt="big-img">
+            <div class="info_right">
+                <img src="{% static 'img/blog/blog-big-title.png' %}" alt="big-title">
+                <img src="{% static 'img/blog/blog-subtitle.png' %}" alt="big-subtitle">
+                <button><img src="{% static 'img/blog/v.png' %}" alt="v" class="v"> читать посты</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'shop/layout.html' %}
+{% load static %}
+
+{% block title %}Домашняя{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <div class="main_page">
+            <div class="info_left">
+                <img src="{% static 'img/shop/shop-logo.png' %}" alt="big-logo" class="big_logo">
+                <span>лучшая еда и вещи для ваших питомцев</span>
+                <button>Новинки</button>
+            </div>
+            <img src="{% static 'img/shop/shop-big-cat.png' %}" alt="big-cat" class="big_cat">
+        </div>
+    </div>
+{% endblock %}

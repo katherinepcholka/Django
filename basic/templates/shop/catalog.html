@@ -1,0 +1,18 @@
+{% extends 'shop/layout.html' %}
+{% load static %}
+
+{% block title %}Категории{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <div class="catalog">
+            <div class="catalog_section">
+                <img src="{% static 'img/shop/shop-cat.png' %}" alt="cats">
+                <span>Коты</span>
+            </div>
+            <div class="catalog_section">
+                <img src="{% static 'img/shop/shop-dog.png' %}" alt="dogs">
+                <span>Собаки</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
