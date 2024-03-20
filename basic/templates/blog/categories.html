@@ -5,22 +5,12 @@
     <div class="wrapper">
         <h2>Категории</h2>
         <div class="categories">
-            <div class="categories_section">
-                <span>One</span>
-                <button>Подробнее</button>
-            </div>
-            <div class="categories_section">
-                <span>Two</span>
-                <button>Подробнее</button>
-            </div>
-            <div class="categories_section">
-                <span>Three</span>
-                <button>Подробнее</button>
-            </div>
-            <div class="categories_section">
-                <span>Four</span>
-                <button>Подробнее</button>
-            </div>
+            {% for el in categories %}
+                <div class="categories_section">
+                    <span>{{ el.name }}</span>
+                    <a href="{% url 'category' el.id %}"><button>Подробнее</button></a>
+                </div>
+            {% endfor %}
         </div> 
     </div>
 {% endblock %}

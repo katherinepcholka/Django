@@ -1,0 +1,14 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}Пост{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="post_content">
+            <h2>{{ post.title }}</h2>
+            <span>{{ post.subtitle }}</span>
+            <p>{{ post.content }}</p>
+            <button>Кнопка</button>
+        </div>
+    </div>
+{% endblock %}

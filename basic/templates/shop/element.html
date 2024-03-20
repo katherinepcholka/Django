@@ -1,0 +1,18 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}Категории{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <h2>{{ element.name }}</h2>
+        <div class='catalog_product'>
+            {% for el in product %}
+            <div class="catalog_info">
+                <img src="/static/img/shop/no-product-img.png" alt="no_img">
+                <span>{{ el.title }}</span>
+                <p>{{ el.description }}</p>
+                <a href="{% url 'product' el.id %}"><button>Подробнее</button></a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

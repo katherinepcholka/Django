@@ -1,0 +1,17 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}Категории{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <h2>{{ category.name }}</h2>
+        {% for el in post %}
+            <div class="category">
+                <div class="category_info">
+                    <span>{{ el.title }}</span>
+                    <span>{{ el.subtitle }}</span>
+                </div>
+                <a href="{% url 'post' el.id %}"><button>Читать</button></a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

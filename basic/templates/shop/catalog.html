@@ -5,14 +5,16 @@
 {% block content %}
     <div class="wrapper">
         <div class="catalog">
-            <div class="catalog_section">
-                <img src="{% static 'img/shop/shop-cat.png' %}" alt="cats">
-                <span>Коты</span>
-            </div>
-            <div class="catalog_section">
-                <img src="{% static 'img/shop/shop-dog.png' %}" alt="dogs">
-                <span>Собаки</span>
-            </div>
+            {% for el in catalog %}
+                <div class="catalog_section">
+                    <span>{{ el.name }}</span>
+                    <img src="/static/img/shop/no-catalog-img.png" alt="no-img">
+                    <a href="catalog/1/{{ el.id }}"><button>Коты</button></a>
+                    <a href="catalog/2/{{ el.id }}"><button>Собаки</button></a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
+
+
