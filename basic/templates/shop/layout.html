@@ -15,7 +15,10 @@
                 <a href="{% url 'main' %}">Главная</a>
                 <a href="{% url 'catalog' %}">Каталог</a>
             </nav>
-            <input type="text" placeholder="Поиск">
+            <div class="input_button">
+                <input type="text" placeholder="Поиск">
+                <a href="{% url 'create_product' %}"><button>Добавить товар</button></a>
+            </div>
             <div class="basket_login">
                 <div class="basket_login_container">
                     <img src="{% static 'img/shop/shop-basket.png' %}" alt="basket">

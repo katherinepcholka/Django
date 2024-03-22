@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Catalog, Animal
+from .forms import ProductForm
 
 def main(request):
     return render (request, 'shop/main.html')
@@ -27,3 +28,18 @@ def product(request, prdt_id):
         'product': product,
         }
     return render (request, 'shop/product.html', info)
+
+def create_product(request):
+    error = ''
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            error = 'Неверное заполнение'
+    form = ProductForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'shop/create_product.html', data)

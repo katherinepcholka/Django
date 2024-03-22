@@ -1,0 +1,14 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}Добавить пост{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <form method="post", action="">
+            {% csrf_token %}
+            <span>Форма добавления</span>
+            {{ form }}
+            <span>{{ error }}</span>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+{% endblock %}
