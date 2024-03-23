@@ -1,0 +1,13 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %}Редактирование{% endblock %}
+
+{% block content %}
+    <div class="update_create">
+        <form method="POST" action="{% url 'update_post' post.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Редактировать</button>
+        </form>
+    </div>
+{% endblock %}
