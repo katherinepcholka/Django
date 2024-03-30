@@ -1,5 +1,9 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+    pass
 
 class Animal(models.Model):
     name = models.CharField(max_length=10)
@@ -48,3 +52,16 @@ class Product(models.Model):
     class Meta():
         verbose_name = 'Product'
         verbose_name_plural = 'Products' 
+
+
+class Basket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f'{self.user.username}|{self.product.title}'
+
+    class Meta():
+        verbose_name = 'Basket'
+        verbose_name_plural = 'Basket'

@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'shop.User'
+LOGIN_REDIRECT_URL = '/shop/main'
+LOGOUT_REDIRECT_URL = '/shop/main'
+
 
 # Application definition
 

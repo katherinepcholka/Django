@@ -5,17 +5,17 @@
 {% block content %}
     <div class="wrapper">
         <div class="product">
-            <div class="product_info-left">
+            <div class="product_info-up">
                 <img src="/static/img/shop/no-product-img.png" alt="no-img">
-                <div class="product_title_price">
-                    <span>{{ product.title }}</span>
-                    <h3>{{ product.price }}$</h3>
+                <div class="product_info-text">
+                    <span>{{ product.description }}</span>
+                    <p>{{ product.information }}</p>
                 </div>
             </div>
-            <div class="product_info-right">
-                <span>{{ product.description }}</span>
-                <p>{{ product.information }}</p>
-                <button>Кнопка</button>
+            <div class="product_info-down">
+                <span>{{ product.title }}</span>
+                <h3>{{ product.price }}$</h3>
+                <a href="{% url 'order' product.id %}"><button>Добавить в корзину</button></a>
             </div>
         </div>
     </div>

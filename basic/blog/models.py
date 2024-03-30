@@ -1,7 +1,6 @@
 from django.db import models
-
-from django.db import models
 from django.utils.text import slugify
+
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
@@ -25,3 +24,4 @@ class Post(models.Model):
     class Meta():
         verbose_name = 'Post'
         verbose_name_plural = 'Posts' 
+

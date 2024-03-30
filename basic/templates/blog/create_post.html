@@ -5,8 +5,11 @@
     <div class="update_create">
         <form method="post", action="">
             {% csrf_token %}
-            <span>Форма добавления</span>
-            {{ form }}
+            <h3>Форма добавления</h3>   
+            {{ form.title }}
+            {{ form.subtitle }}
+            {{ form.content }}
+            {{ form.categories }}
             <span>{{ error }}</span>
             <button type="submit">Добавить</button>
         </form>

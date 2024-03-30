@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'fonts/Mister Brush/ofont.ru_Mister Brush.ttf' %}">
     <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popupmenu.css' %}">
+    <script src="{% static 'js/popupmenu.js' %}" defer></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -22,16 +24,29 @@
             <div class="basket_login">
                 <div class="basket_login_container">
                     <img src="{% static 'img/shop/shop-basket.png' %}" alt="basket">
-                    <a href="#">Корзина</a>
+                    <a href="{% url 'basket' %}">Корзина</a>
                 </div>
                 <div class="basket_login_container">
                     <img src="{% static 'img/shop/shop-user-account.png' %}" alt="user_account">
-                    <a href="#">Кабинет</a>
+                    <button class="popup-button">{{ user }}</button>
                 </div>
             </div>
         </div>
     </header>
     {% block content %}
     {% endblock %}
+    <div class="popup-menu">
+        <div class="popup-menu-wrapper">
+            {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Разлогиниться</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}"><button>Залогиниться</button></a>
+            {% endif %}
+            <button class="popupmenu-closebutton">-----</button>
+        </div>
+    </div>
 </body>
 </html>

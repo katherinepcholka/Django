@@ -15,11 +15,11 @@
                 <a href="{% url 'home' %}">Главная</a>
                 <a href="{% url 'categories' %}">Категории</a>
             </nav>
-            <input type="text" placeholder="Поиск">
-            <a href="#">Авторизация</a>
+            <a href="#">{{ user }}</a>
         </div>
     </header>
     {% block content %}
     {% endblock %}
+    <footer>© Lucy Blog</footer>
 </body>
 </html>

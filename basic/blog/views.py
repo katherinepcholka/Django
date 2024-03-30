@@ -36,7 +36,7 @@ def create_post(request):
             form.save()
             return redirect('home')
         else:
-            error = 'Неверное заполнение формы'
+            error = 'Неверное заполнение формы!'
     form = PostForm()
     data = {
         'form': form,

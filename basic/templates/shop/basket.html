@@ -1,0 +1,25 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}Корзина{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        {% if basket %}
+        {% for el in basket %}
+            <div class="basket">
+                <div class="basket_info">
+                    <span>{{ el.product.title }}</span>
+                    <p>{{ el.product.description}}</p>
+               </div>
+               <div class="basket_quantity">
+                    <span>{{ el.quantity }}</span>
+                    <p>шт.</p>
+                    <a href="{% url 'order' el.product.id %}"><img src="/static/img/shop/shop-plus.png" alt="shop-plus"></a>
+               </div>
+               <a href="{% url 'order_delete' el.id %}"><img src="/static/img/shop/shop-delete.png" alt="shop-delete"></a>
+            </div>
+        {% endfor %}
+        {% else %}
+            <h2>Корзина пуста</h2>
+        {% endif %}
+    </div>
+{% endblock %}

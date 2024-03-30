@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Product, Catalog, Animal
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Product, Catalog, Animal, Basket
 from .forms import ProductForm
 
 def main(request):
@@ -43,3 +43,27 @@ def create_product(request):
         'error': error
     }
     return render(request, 'shop/create_product.html', data)
+
+def order(request, prdt_id):
+    product = Product.objects.get(id=prdt_id)
+    basket = Basket.objects.filter(user=request.user, product=product)
+    if not basket.exists():
+        Basket.objects.create(user=request.user, product=product)
+        return redirect('basket') 
+    else:
+        basket = basket.first()
+        basket.quantity += 1
+        basket.save()
+        return redirect('basket')
+
+def basket(request):
+    basket = Basket.objects.filter(user=request.user)
+    data = {
+        'basket': basket,
+        }
+    return render (request, 'shop/basket.html', data)
+
+def order_delete(request, id):
+    basket = Basket.objects.get(id=id)
+    basket.delete()
+    return redirect('basket')

@@ -3,7 +3,10 @@
 {% block title %}Категории{% endblock %}
 {% block content %}
     <div class="wrapper">
-        <div class="category_title"><h2>{{ category.name }}</h2><a href="{% url 'create_post' %}"><button>Добавить пост</button></a></div>
+        <div class="category_title">
+            <h2>{{ category.name }}</h2>
+            <a href="{% url 'create_post' %}"><button>+ Добавить пост</button></a>
+        </div>
         {% for el in post %}
             <div class="category">
                 <div class="category_info">

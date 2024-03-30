@@ -6,7 +6,10 @@
     <div class="update_create">
         <form method="POST" action="{% url 'update_post' post.id %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.title }}
+            {{ form.subtitle }}
+            {{ form.content }}
+            {{ form.categories }}
             <button type="submit">Редактировать</button>
         </form>
     </div>
