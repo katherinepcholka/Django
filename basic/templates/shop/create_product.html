@@ -5,8 +5,14 @@
     <div class="wrapper">
         <form method="post", action="">
             {% csrf_token %}
-            <span>Форма добавления</span>
-            {{ form }}
+            <span>Добавить товар</span>
+            {{ form.title }}
+            {{ form.description }}
+            {{ form.information }}
+            {{ form.price }}
+            {{ form.is_available }}
+            {{ form.animal }}
+            {{ form.catalog }}
             <span>{{ error }}</span>
             <button type="submit">Добавить</button>
         </form>

@@ -35,15 +35,19 @@
     </header>
     {% block content %}
     {% endblock %}
+    <footer>
+    </footer>
     <div class="popup-menu">
         <div class="popup-menu-wrapper">
             {% if user.is_authenticated %}
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Разлогиниться</button>
-            </form>
+            <div class="popup-logout">
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Разлогиниться</button>
+                </form>
+            </div>
             {% else %}
-            <a href="{% url 'login' %}"><button>Залогиниться</button></a>
+            <a href="{% url 'login' %}"><button class="popup-main-button">Залогиниться</button></a>
             {% endif %}
             <button class="popupmenu-closebutton">-----</button>
         </div>

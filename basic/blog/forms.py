@@ -10,9 +10,8 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'subtitle', 'content', 'categories']
       
         widgets = {
-            "title": TextInput(attrs={'class': 'form-control', 'placeholder': 'Название'}),
-            "subtitle": TextInput(attrs={'class': 'form-control', 'placeholder': 'Подзаголовок'}),
-            "content": Textarea(attrs={'class': 'form-control', 'placeholder': 'Текст'}),
-            "categories": SelectMultiple(attrs={'class': 'form-control'})
+            "title": TextInput(attrs={'placeholder': 'Название'}),
+            "subtitle": TextInput(attrs={ 'placeholder': 'Подзаголовок'}),
+            "content": Textarea(attrs={'placeholder': 'Текст'})
         }   
 

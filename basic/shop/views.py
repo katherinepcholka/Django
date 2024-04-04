@@ -1,6 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Catalog, Animal, Basket
 from .forms import ProductForm
+from .serializers import ProductSerializer
+from rest_framework import generics, viewsets, mixins
+from rest_framework.viewsets import GenericViewSet
+
+
+class ProductViewSet(mixins.CreateModelMixin,
+                   mixins.RetrieveModelMixin,
+                   mixins.UpdateModelMixin,
+                   mixins.ListModelMixin,
+                   mixins.DestroyModelMixin,
+                   GenericViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
 
 def main(request):
     return render (request, 'shop/main.html')
@@ -67,3 +81,4 @@ def order_delete(request, id):
     basket = Basket.objects.get(id=id)
     basket.delete()
     return redirect('basket')
+

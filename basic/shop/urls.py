@@ -1,5 +1,10 @@
 from django.urls import path, include
 from . import views
+from .views import *
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+router.register(r'product', ProductViewSet)
 
 urlpatterns = [
     path('main', views.main, name= 'main'),
@@ -10,5 +15,6 @@ urlpatterns = [
     path('order/<int:prdt_id>', views.order, name='order'),
     path('order_delete/<int:id>', views.order_delete, name='order_delete'),
     path('basket', views.basket, name= 'basket'),
-    path('', include('django.contrib.auth.urls')) 
+    path('', include('django.contrib.auth.urls')),
+    path('api/', include(router.urls))
 ]
